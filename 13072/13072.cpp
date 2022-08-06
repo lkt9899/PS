@@ -58,13 +58,13 @@ void hire(int mID, int mTeam, int mScore)
     Soldier* sol = getSoldier(mID, mTeam, mScore);
     
     if(head[mTeam]->next) {
-    	Soldier* prevHead = head[mTeam]->next;
+        Soldier* prevHead = head[mTeam]->next;
         sol->next = prevHead;
         prevHead->prev = sol;
         head[mTeam]->next = sol;
     }
     else {
-    	head[mTeam]->next = sol;
+        head[mTeam]->next = sol;
     }
     notUpdate[mID] = 1;
     addCnt[mTeam]++;
@@ -76,20 +76,20 @@ void fire(int mID)
     Soldier* next = arrSol[mID].next;
     
     if(prev && next) {
-    	prev->next = next;
-    	next->prev = prev;
+        prev->next = next;
+        next->prev = prev;
     }
     else if(prev || next){
-    	if(next) {
-        	next->prev = nullptr;
+        if(next) {
+            next->prev = nullptr;
             head[next->mTeam]->next = next;
         }
         else if(prev) {
-        	prev->next = nullptr;
+            prev->next = nullptr;
         }
     }
     else {
-    	head[arrSol[mID].mTeam]->next = nullptr;
+        head[arrSol[mID].mTeam]->next = nullptr;
     }
 
     if(notUpdate[mID] == 1) {
