@@ -20,7 +20,7 @@
   |   9   |     [윷놀이](https://www.acmicpc.net/problem/2490)     |  [2490](2490.cpp)  |
   |  10   |      [홀수](https://www.acmicpc.net/problem/2576)      |  [2576](2576.cpp)  |
   |  11   |    [대표값2](https://www.acmicpc.net/problem/2587)     |  [2587](2587.cpp)  |
-  |  12   |  [일곱 난쟁이](https://www.acmicpc.net/problem2309/)   |  [2309](2309.cpp)  |
+  |  12   |  [일곱 난쟁이](https://www.acmicpc.net/problem/2309)   |  [2309](2309.cpp)  |
   |  13   |  [알파벳 갯수](https://www.acmicpc.net/problem/10808)  | [10808](10808.cpp) |
   |  14   |   [사칙연산](https://www.acmicpc.net/problem/10869)    | [10869](10869.cpp) |
   |  15   |  [숫자의 갯수](https://www.acmicpc.net/problem/2577)   |  [2577](2577.cpp)  |
