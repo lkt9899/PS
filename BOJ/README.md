@@ -26,4 +26,7 @@
   |  15   |  [숫자의 갯수](https://www.acmicpc.net/problem/2577)   |  [2577](2577.cpp)  |
   |  16   |     [숫자](https://www.acmicpc.net/problem/10093)      | [10093](10093.cpp) |
   |  17   |     [A - B](https://www.acmicpc.net/problem/1001)      |  [1001](1001.cpp)  |
-  |  18   |     [A / B](https://www.acmicpc.net/problem/1007)      |  [1007](1007.cpp)  |
+  |  18   |     [A / B](https://www.acmicpc.net/problem/1008)      |  [1008](1008.cpp)  |
+  |  19   |   [두 수 비교](https://www.acmicpc.net/problem/1330)   |  [1330](1330.cpp)  |
+  |  20   |      [곱셈](https://www.acmicpc.net/problem/2588)      |  [2588](2588.cpp)  |
+  |  21   |     [구구단](https://www.acmicpc.net/problem/2739)     |  [2739](2739.cpp)  |
