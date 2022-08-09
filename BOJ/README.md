@@ -2,7 +2,7 @@
 
 ## 문제 분류
 <!-- 링크 양식
-|  16   |  [](https://www.acmicpc.net/problem/)   |  [](.cpp)  |
+|  17   |  [](https://www.acmicpc.net/problem/)   |  [](.cpp)  |
 -->
 ---
 - 기초 구현
@@ -25,3 +25,4 @@
   |  14   |   [사칙연산](https://www.acmicpc.net/problem/10869)    | [10869](10869.cpp) |
   |  15   |  [숫자의 갯수](https://www.acmicpc.net/problem/2577)   |  [2577](2577.cpp)  |
   |  16   |     [숫자](https://www.acmicpc.net/problem/10093)      | [10093](10093.cpp) |
+  |  17   |     [A - B](https://www.acmicpc.net/problem/1001)      |  [1001](1001.cpp)  |
