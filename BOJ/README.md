@@ -2,7 +2,7 @@
 
 ## 문제 분류
 <!-- 링크 양식
-|  18   |  [](https://www.acmicpc.net/problem/)   |  [](.cpp)  |
+|  24   |  [](https://www.acmicpc.net/problem/)   |  [](.cpp)  |
 -->
 ---
 - 기초 구현
@@ -30,3 +30,10 @@
   |  19   |   [두 수 비교](https://www.acmicpc.net/problem/1330)   |  [1330](1330.cpp)  |
   |  20   |      [곱셈](https://www.acmicpc.net/problem/2588)      |  [2588](2588.cpp)  |
   |  21   |     [구구단](https://www.acmicpc.net/problem/2739)     |  [2739](2739.cpp)  |
+  |  22   |   [알람 시계](https://www.acmicpc.net/problem/2884)    |  [2884](2884.cpp)  |
+  |  23   |       [합](https://www.acmicpc.net/problem/8393)       |  [8393](8393.cpp)  |
+  |  24   |    [나머지](https://www.acmicpc.net/problem/10430)     | [10430](10430.cpp) |
+  |  25   | [We love kriii](https://www.acmicpc.net/problem/10718) | [10718](10718.cpp) |
+  |  26   |       [A+B - 3](https://www.acmicpc.net/problem/10950)        | [10950](10950.cpp) |
+  |  27   |       [A×B](https://www.acmicpc.net/problem/10998)        | [10998](10998.cpp) |
+  |  28   |       [사분면 고르기](https://www.acmicpc.net/problem/14681)        | [14681](14681.cpp) |
