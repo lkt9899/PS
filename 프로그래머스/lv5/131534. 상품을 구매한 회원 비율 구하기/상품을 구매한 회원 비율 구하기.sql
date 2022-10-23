@@ -1,0 +1,28 @@
+-- 코드를 입력하세요
+SET @IC = (
+    SELECT
+        COUNT(USER_ID)
+    FROM
+        USER_INFO
+    WHERE
+        JOINED LIKE "2021%");
+
+SELECT 
+    YEAR,
+    MONTH,
+    COUNT(*) PURCHASED_USERS,
+    ROUND(COUNT(*) / @IC, 1) PURCHASED_RATIO
+FROM (
+    SELECT DISTINCT
+        YEAR(S.SALES_DATE) AS YEAR,
+        MONTH(S.SALES_DATE) AS MONTH,
+        U.USER_ID
+    FROM
+        ONLINE_SALE S
+    JOIN
+        USER_INFO U
+    ON
+        S.USER_ID = U.USER_ID AND
+        YEAR(JOINED) = 2021) J
+GROUP BY YEAR, MONTH
+ORDER BY YEAR, MONTH;
