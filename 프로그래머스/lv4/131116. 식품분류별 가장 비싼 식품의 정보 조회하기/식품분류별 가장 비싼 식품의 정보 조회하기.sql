@@ -12,8 +12,7 @@ WHERE
         FROM (
             SELECT
                 CATEGORY,
-                PRICE,
-                PRODUCT_NAME
+                PRICE
             FROM
                 FOOD_PRODUCT) F
         GROUP BY
@@ -21,12 +20,3 @@ WHERE
     CATEGORY IN ("과자", "김치", "국", "식용유")
 ORDER BY
     MAX_PRICE DESC
-# SELECT
-#     CATEGORY,
-#     PRICE,
-#     PRODUCT_NAME
-# FROM 
-#     FOOD_PRODUCT
-# WHERE
-#     CATEGORY IN ("과자", "국", "김치", "식용유")
-# ORDER BY CATEGORY, PRICE DESC
