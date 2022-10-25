@@ -22,25 +22,3 @@ WHERE
     ADDRESS LIKE "서울%"
 ORDER BY
     SCORE DESC, FAVORITES DESC
-# SELECT
-#     ri.rest_id
-#     , ri.rest_name
-#     , ri.food_type
-#     , ri.favorites
-#     , ri.address
-#     , ROUND(AVG(rr.review_score), 2) AS score
-# FROM
-#     rest_info AS ri
-# LEFT JOIN
-#     rest_review AS rr
-# ON
-#     ri.rest_id = rr.rest_id
-# WHERE
-#     ri.address LIKE '서울%'
-#     AND rr.rest_id IS NOT NULL
-# GROUP BY
-#     ri.rest_id
-# ORDER BY
-#     score DESC
-#     , ri.favorites DESC
-# ;
