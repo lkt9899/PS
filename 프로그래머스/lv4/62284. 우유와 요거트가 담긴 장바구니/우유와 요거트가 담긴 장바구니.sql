@@ -1,15 +1,15 @@
 -- 코드를 입력하세요
-SELECT
+SELECT DISTINCT
     Y.CART_ID
 FROM
-    (SELECT DISTINCT
+    (SELECT
         CART_ID
     FROM
         CART_PRODUCTS
     WHERE
         NAME = "Yogurt") Y
     INNER JOIN
-    (SELECT DISTINCT
+    (SELECT
         CART_ID
     FROM
         CART_PRODUCTS
