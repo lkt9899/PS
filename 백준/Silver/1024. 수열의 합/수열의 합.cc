@@ -3,23 +3,16 @@
 
 using namespace std;
 
-int N, L;
-
-int getX(int t, int l) {
-    return (N - t) / l;
-}
-
 int main()
 {
     fio;
-
-    cin >> N >> L;
-
+    int N, L, t;
     int x = -1;
+    cin >> N >> L;
     while(L <= 100) {
-        int t = L * (L-1) / 2;
+        t = L * (L-1) / 2;
         if((N - t) % L == 0 && t <= N) {
-            x = getX(t, L);
+            x = (N - t) / L;
             break;
         }
         else L++;
