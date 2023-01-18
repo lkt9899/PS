@@ -1,29 +1,22 @@
-#include <bits/stdc++.h>
-#define fio ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-
-using namespace std;
+#include <stdio.h>
 
 int main()
 {
-    fio;
-    int N, L, t;
-    int x = -1;
-    cin >> N >> L;
-    while(L <= 100) {
+    int N, L;
+    int t = 0;
+
+    scanf("%d %d", &N, &L);
+    while(t <= N && L <= 100) {
         t = L * (L-1) / 2;
         if((N - t) % L == 0 && t <= N) {
-            x = (N - t) / L;
-            break;
+            for(int i = 0; i < L; i++) {
+                printf("%d ", (N - t) / L + i);
+            }
+            return 0;
         }
-        else L++;
+        L++;
     }
-
-    if(x == -1) cout << -1;
-    else {
-        for(int i = 0; i < L; i++) {
-            cout << x+i << " ";
-        }
-    }
+    printf("-1");
 
     return 0;
 }
