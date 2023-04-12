@@ -4,21 +4,10 @@ using namespace std;
 
 double h, w, n, m;
 
-void input() {
+int main() {
     cin >> h >> w >> n >> m;
     n++;
     m++;
-}
-
-int run() {
-    return ceil(h/n) * ceil(w/m);
-}
-
-int main() {
-    ios_base::sync_with_stdio(0);
-
-    input();
-    cout << run();
-
+    cout << (long long)ceil(h/n) * (long long)ceil(w/m);
     return 0;
 }
