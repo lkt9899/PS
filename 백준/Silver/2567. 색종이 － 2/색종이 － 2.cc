@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
 #define fio ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 
 using namespace std;
@@ -35,12 +36,11 @@ void sol() {
     int dj[4] = {1, -1, 0, 0};
     for (int i = 1; i <= 100; i++) {
         for (int j = 1; j <= 100; j++) {
-            if(board[i][j] == 1) {
+            if (board[i][j] == 1) {
                 for (int k = 0; k < 4; k++) {
                     ni = i + di[k];
                     nj = j + dj[k];
-                    if(board[ni][nj] == 0)
-                        ans++;
+                    if (board[ni][nj] == 0) ans++;
                 }
             }
         }
@@ -55,8 +55,7 @@ void run() {
     sol();
 }
 
-int main()
-{
+int main() {
     fio;
     run();
     return 0;
