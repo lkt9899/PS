@@ -2,9 +2,6 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-
-    static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
     static final int MAX = 20;
     static int N, age, ans;
     static int[][] map = new int[MAX][MAX];
@@ -44,9 +41,7 @@ public class Main {
         input();
         find(start, 0);
 
-        bw.write(ans + "");
-        bw.flush();
-        bw.close();
+        System.out.println(new StringBuilder(ans + "").toString());
     }
 
     static void init() {
