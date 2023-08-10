@@ -3,8 +3,7 @@ import java.util.*;
 
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-    static StringBuilder sb;
+    static StringBuilder sb = new StringBuilder();
     static StringTokenizer st;
 
     static final int MAX = 8;
@@ -38,8 +37,7 @@ public class Main {
             print();
         } while (nextPermutation());
 
-        bw.flush();
-        bw.close();
+        System.out.println(sb);
     }
 
     static boolean nextPermutation() {
@@ -87,11 +85,9 @@ public class Main {
     }
 
     static void print() throws Exception {
-        sb = new StringBuilder();
         for (int i = 0; i < M; i++) {
             sb.append(p[i] + " ");
         }
-        bw.write(sb.toString());
-        bw.newLine();
+        sb.append("\n");
     }
 }
