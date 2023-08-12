@@ -1,31 +1,37 @@
-#include<iostream>
- 
-using namespace std;
- 
-int main(int argc, char** argv)
-{
-    ios_base::sync_with_stdio(0); cin.tie(NULL); cout.tie(NULL);
-    int test_case;
-    int N, T;
+import java.io.*;
 
-    cin>>T;
-    for(test_case = 1; test_case <= T; ++test_case)
-    {
-        int nN = 0;
-        int tmp = 0;
-        int chk = 0;
-        cin >> N;
-         
-        while(chk != (1 << 10) - 1) {
-            nN += N;
-            tmp = nN;
-            while(tmp > 0) {
-                chk |= 1 << (tmp % 10);
-                tmp /= 10;
-            } 
+public class Solution {
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    static StringBuilder sb;
+
+    public static void main(String[] args) throws Exception {
+        int T = Integer.parseInt(br.readLine());
+        sb = new StringBuilder();
+        for (int test_case = 1; test_case <= T; test_case++) {
+            sb.append("#" + test_case + " ");
+            run();
         }
-         
-        cout << "#" << test_case << " " << nN << "\n";
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
+        br.close();
     }
-    return 0;
+
+    static void run() throws Exception {
+        int N = Integer.parseInt(br.readLine());
+
+        int bit = 0, cnt = 1;
+        while (bit != (1 << 10) - 1) {
+            int tmp = N * cnt;
+            while (tmp != 0) {
+                int used = tmp % 10;
+                tmp /= 10;
+                bit |= (1 << used);
+            }
+            cnt++;
+        }
+
+        sb.append(N * (cnt - 1) + "\n");
+    }
 }
