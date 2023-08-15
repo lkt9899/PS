@@ -45,57 +45,66 @@ public class Main {
 
     static void check() {
         for (int i = 0; i < R_MAX; i++) {
-            int[][] res = new int[T_MAX][C_MAX];
-            simulation(i, res, 0);
+            if (ans[i] == -1) {
+                ans[i] = 0;
+                continue;
+            }
+
+            if (simulation(i, 0, false))
+                ans[i] = 1;
         }
     }
 
-    static void simulation(int simulationNum, int[][] res, int cnt) {
+    static boolean simulation(int simulationNum, int cnt, boolean isEnd) {
         if (cnt == 15) {
-            for (int i = 0; i < T_MAX; i++) {
-                if (res[i][WIN] != result[simulationNum][i][WIN] || res[i][DRAW] != result[simulationNum][i][DRAW]
-                        || res[i][LOSE] != result[simulationNum][i][LOSE])
-                    return;
-            }
-            ans[simulationNum] = 1;
-            return;
+            return true;
         }
 
         int home = t1[cnt];
         int away = t2[cnt];
 
-        // t1 win, t2 lose
-        res[home][WIN]++;
-        res[away][LOSE]++;
-        simulation(simulationNum, res, cnt + 1);
-        res[home][WIN]--;
-        res[away][LOSE]--;
+        result[simulationNum][home][WIN]--;
+        result[simulationNum][away][LOSE]--;
+        if (result[simulationNum][home][WIN] >= 0 && result[simulationNum][away][LOSE] >= 0)
+            isEnd = simulation(simulationNum, cnt + 1, isEnd);
+        result[simulationNum][home][WIN]++;
+        result[simulationNum][away][LOSE]++;
 
-        // t1 lose, t2 win
-        res[home][LOSE]++;
-        res[away][WIN]++;
-        simulation(simulationNum, res, cnt + 1);
-        res[home][LOSE]--;
-        res[away][WIN]--;
+        result[simulationNum][home][LOSE]--;
+        result[simulationNum][away][WIN]--;
+        if (result[simulationNum][home][LOSE] >= 0 && result[simulationNum][away][WIN] >= 0)
+            isEnd = simulation(simulationNum, cnt + 1, isEnd);
+        result[simulationNum][home][LOSE]++;
+        result[simulationNum][away][WIN]++;
 
-        // t1, t2 draw
-        res[home][DRAW]++;
-        res[away][DRAW]++;
-        simulation(simulationNum, res, cnt + 1);
-        res[home][DRAW]--;
-        res[away][DRAW]--;
+        result[simulationNum][home][DRAW]--;
+        result[simulationNum][away][DRAW]--;
+        if (result[simulationNum][home][DRAW] >= 0 && result[simulationNum][away][DRAW] >= 0)
+            isEnd = simulation(simulationNum, cnt + 1, isEnd);
+        result[simulationNum][home][DRAW]++;
+        result[simulationNum][away][DRAW]++;
+
+        return isEnd;
     }
 
     static void input() throws Exception {
+
         for (int i = 0; i < R_MAX; i++) {
+            int total = 0;
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < T_MAX; j++) {
-                result[i][j][0] = Integer.parseInt(st.nextToken());
-                result[i][j][1] = Integer.parseInt(st.nextToken());
-                result[i][j][2] = Integer.parseInt(st.nextToken());
+                result[i][j][WIN] = Integer.parseInt(st.nextToken());
+                result[i][j][DRAW] = Integer.parseInt(st.nextToken());
+                result[i][j][LOSE] = Integer.parseInt(st.nextToken());
+                int sum = result[i][j][WIN] + result[i][j][DRAW] + result[i][j][LOSE];
+                total += sum;
+                if (sum > 5)
+                    ans[i] = -1;
             }
-        }
 
+            if (total != 30)
+                ans[i] = -1;
+        }
         br.close();
     }
 
