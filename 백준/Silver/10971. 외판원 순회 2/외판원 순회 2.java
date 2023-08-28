@@ -15,14 +15,17 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         input();
-        run();
+        System.out.println(TSP(0, 1));
     }
 
     static void input() throws Exception {
         N = Integer.parseInt(br.readLine());
-
         ALL = (1 << N);
+        
         dp = new int[N][ALL];
+        for (int i = 0; i < N; i++)
+            Arrays.fill(dp[i], -1);
+        
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < N; j++) {
@@ -30,17 +33,6 @@ public class Main {
             }
         }
         br.close();
-    }
-
-    static void run() throws Exception {
-        dpInit();
-        int minD = TSP(0, 1);
-        System.out.println(minD);
-    }
-
-    static void dpInit() {
-        for (int i = 0; i < N; i++)
-            Arrays.fill(dp[i], -1);
     }
 
     static int TSP(int start, int visit) {
