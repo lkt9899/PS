@@ -7,15 +7,11 @@ public class Main {
     static StringTokenizer st;
     
     static int N, ans;
-    static int[] lose, happy; 
+    static int[] lose, happy;
+    static int[] dp = new int[101];
 
 
     public static void main(String[] args) throws Exception {
-        input();
-        run();
-    }
-    
-    static void input() throws Exception {
         N = Integer.parseInt(br.readLine());
         lose = new int[N];
         happy = new int[N];
@@ -29,23 +25,13 @@ public class Main {
         for (int i = 0; i < N; i++) {
             happy[i] = Integer.parseInt(st.nextToken());
         }
-    }
 
-    static void run() throws Exception {
-        find(0, 100, 0);
-        System.out.println(ans);
-    }
-
-    static void find(int cnt, int life, int sum) {
-        if (life <= 0)
-            return;
-
-        if (cnt == N) {
-            ans = ans > sum ? ans : sum;
-            return;
+        for (int i = 0; i < N; i++) {
+            for (int j = 100; j > lose[i]; j--) {
+                dp[j] = Math.max(dp[j - lose[i]] + happy[i], dp[j]);
+            }
         }
 
-        find(cnt + 1, life, sum);
-        find(cnt + 1, life - lose[cnt], sum += happy[cnt]);
+        System.out.println(dp[100]);
     }
 }
