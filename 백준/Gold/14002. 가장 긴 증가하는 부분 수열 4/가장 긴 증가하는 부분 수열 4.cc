@@ -40,13 +40,10 @@ void sol() {
         if (dp[i] == max_v) {
             v.push_back(arr[i]);
             max_v--;
+            if(max_v == 0) break;
         }
     }
-
-    if (v.empty())
-        cout << "1\n" << arr[0];
-    else
-        for (int i = v.size() - 1; i >= 0; i--) cout << v[i] << " ";
+    for (int i = v.size() - 1; i >= 0; i--) cout << v[i] << " ";
 }
 
 void run() {
