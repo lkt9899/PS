@@ -6,11 +6,21 @@ public class Solution {
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     static StringTokenizer st;
     static StringBuilder sb = new StringBuilder();
-    
-    static final int MAX_N = 501;
+
+    static final int MAX = 501;
 
     static int N, M;
-    static int[][] adj = new int[MAX_N][MAX_N];
+    static Node[] nodeList = new Node[MAX];
+
+    static class Node {
+        List<Integer> shortList;
+        List<Integer> tallList;
+
+        public Node() {
+            shortList = new ArrayList<>();
+            tallList = new ArrayList<>();
+        }
+    }
 
     public static void main(String[] args) throws Exception {
         int T = Integer.parseInt(br.readLine());
@@ -20,16 +30,15 @@ public class Solution {
         }
         print();
     }
-    
+
     static void run() throws Exception {
         input();
         sb.append(getAns() + "\n");
     }
-    
+
     static void init() {
-        for (int i = 1; i <= N; i++) {
-            Arrays.fill(adj[i], 1, N + 1, 0);
-        }
+        for(int i = 1; i <= N; i++)
+            nodeList[i] = new Node();
     }
 
     static void input() throws Exception {
@@ -42,7 +51,8 @@ public class Solution {
             int from = Integer.parseInt(st.nextToken());
             int to = Integer.parseInt(st.nextToken());
 
-            adj[from][to] = 1;
+            nodeList[from].tallList.add(to);
+            nodeList[to].shortList.add(from);
         }
     }
 
@@ -58,28 +68,27 @@ public class Solution {
 
         return ans;
     }
-    
+
     static int getShort(int to, boolean[] visited) {
         int cnt = 0;
-        for (int i = 1; i <= N; i++) {
-            if (!visited[i] && adj[i][to] == 1) {
-                visited[i] = true;
-                cnt += getShort(i, visited) + 1;
+        for (int n : nodeList[to].shortList) {
+            if (!visited[n]) {
+                visited[n] = true;
+                cnt += getShort(n, visited) + 1;
             }
         }
 
         return cnt;
     }
-    
+
     static int getTall(int from, boolean[] visited) {
         int cnt = 0;
-        for (int i = 1; i <= N; i++) {
-            if (!visited[i] && adj[from][i] == 1) {
-                visited[i] = true;
-                cnt += getTall(i, visited) + 1;
+        for (int n : nodeList[from].tallList) {
+            if (!visited[n]) {
+                visited[n] = true;
+                cnt += getTall(n, visited) + 1;
             }
         }
-
         return cnt;
     }
 
