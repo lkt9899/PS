@@ -59,7 +59,6 @@ public class Main {
     }
     
     static void print() throws Exception {
-        Arrays.sort(ans);
         for(int n : ans)
             sb.append(solutions[n] + " ");
         System.out.println(sb);
