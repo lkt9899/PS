@@ -33,8 +33,6 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken());
-
-        num = new char[N];
         num = br.readLine().toCharArray();
     }
 }
