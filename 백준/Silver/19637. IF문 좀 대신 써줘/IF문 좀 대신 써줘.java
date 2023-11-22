@@ -43,7 +43,6 @@ public class Main {
             styles[i] = new Style(limit, style);
         }
 
-        Arrays.sort(styles);
         for (int i = 0; i < M; i++) {
             int num = Integer.parseInt(br.readLine());
             int idx = findIdx(0, N - 1, num);
