@@ -3,28 +3,26 @@
 #include <vector>
 
 #define fio ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0)
-#define MAX_N 1001
-#define INF 123456789
+#define MAX_N 1 << 10
+#define INF 1 << 27
 
 using namespace std;
 
 struct Edge {
     int e, c;
-};
-
-struct comp {
-    bool operator()(Edge e1, Edge e2) { return e1.c < e2.c; }
+    bool operator<(const Edge& e2) const { return c < e2.c; }
 };
 
 int N, M, S, E;
 int dist[MAX_N];
 vector<Edge> edges[MAX_N];
-priority_queue<Edge, vector<Edge>, comp> pq;
+priority_queue<Edge> pq;
 
 void input() {
+    int s, e, c;
+
     cin >> N >> M;
     for (int i = 0; i < M; i++) {
-        int s, e, c;
         cin >> s >> e >> c;
         edges[s].push_back({e, c});
     }
@@ -35,7 +33,7 @@ void input() {
     }
 }
 
-void sol() {
+void dijkstra() {
     pq.push({S, 0});
     dist[S] = 0;
 
@@ -46,7 +44,7 @@ void sol() {
         if (dist[cur.e] < cur.c) continue;
 
         for (Edge next : edges[cur.e]) {
-            int nextDist = cur.c + next.c;
+            int nextDist = dist[cur.e] + next.c;
 
             if (nextDist < dist[next.e]) {
                 dist[next.e] = nextDist;
@@ -58,13 +56,9 @@ void sol() {
     cout << dist[E] << "\n";
 }
 
-void run() {
-    input();
-    sol();
-}
-
 int main() {
     fio;
-    run();
+    input();
+    dijkstra();
     return 0;
 }
