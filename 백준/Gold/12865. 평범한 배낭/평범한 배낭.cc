@@ -2,8 +2,7 @@
 
 int main() {
     int N, K, W, V;
-    scanf("%d %d", &N, &K);
-    int dp[K + 1] = {0, };
+    int dp[K + scanf("%d %d", &N, &K)] = { };
     while(N--) {
         scanf("%d %d", &W, &V);
         for (int j = K; j >= W; j--)
