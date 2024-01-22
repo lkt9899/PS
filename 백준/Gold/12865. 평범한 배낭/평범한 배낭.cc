@@ -1,17 +1,14 @@
-#include <iostream>
-#define fio ios_base::sync_with_stdio(0), cin.tie(0)
-#define i2(a, b) cin >> a >> b
-#define fi0(e) for (int i = 0; i < e; i++)
+#include <iostream> 
 
 using namespace std;
 
 int main() {
-    fio;
+    ios_base::sync_with_stdio(0), cin.tie(0);
     int N, K, W, V;
     int dp[100001] = {0, };
-    i2(N, K);
-    fi0(N) {
-        i2(W, V);
+    cin >> N >> K;
+    while(N--) {
+        cin >> W >> V;
         for (int j = K; j >= W; j--)
             dp[j] = max(dp[j], dp[j - W] + V);
     }
