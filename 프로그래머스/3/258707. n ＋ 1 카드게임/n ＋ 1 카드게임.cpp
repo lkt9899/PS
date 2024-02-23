@@ -37,12 +37,12 @@ int solution(int coin, vector<int> cards) {
         idx += 2;
 
         // check
-        if (hands.size() >= 2 && check(hands, hands)) {
+        if (check(hands, hands)) {
             answer++;
-        } else if (C >= 1 && hands.size() >= 1 && pick.size() >= 1 && check(hands, pick)) {
+        } else if (C >= 1 && check(hands, pick)) {
             answer++;
             C--;
-        } else if (C >= 2 && pick.size() >= 2 && check(pick, pick)) {
+        } else if (C >= 2 && check(pick, pick)) {
             answer++;
             C -= 2;
         } else
