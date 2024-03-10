@@ -60,7 +60,7 @@ int bfs() {
             if (visited[nx][ny][cur.w]) continue;
 
             if (room[nx][ny] == WALL) {
-                if (cur.w == K) continue;
+                if (cur.w == K || visited[nx][ny][cur.w + 1]) continue;
                 visited[nx][ny][cur.w + 1] = cost + 1;
                 q.push({nx, ny, cur.w + 1});
             } else {
