@@ -21,7 +21,6 @@ int N, M, num;
 bool isCycle;
 vector<int> edges[MAX_N];
 int visited[MAX_N];
-int check[MAX_N];
 
 void init() {
     num = 0;
@@ -63,7 +62,6 @@ void sol() {
         fi1(N) {
             if (!visited[i]) {
                 num++;
-
                 isCycle = false;
                 dfs(0, i);
 
